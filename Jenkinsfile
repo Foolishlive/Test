@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("chinsheng/hellonode")
+        app = docker.build("192.168.224.129:8443/admin/hellonode")
     }
 
     stage('Test image') {
