@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("192.168.224.129:8443/admin/hellonode")
+        app = docker.build("192.168.224.128:8443/admin/hellonode")
     }
 
     stage('Test image') {
@@ -28,7 +28,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://192.168.224.129:8443', 'myDTR') {
+        docker.withRegistry('https://192.168.224.128:8443', 'myDTR') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
